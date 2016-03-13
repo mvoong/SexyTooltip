@@ -470,10 +470,12 @@ CGRectFromEdgeInsets(CGRect rect, UIEdgeInsets edgeInsets) {
     [_contentView removeFromSuperview];
     
     _contentView = contentView;
-    CGRect contentViewBounds = _contentView.bounds;
-    contentViewBounds.size.width += _padding.left + _padding.right;
-    contentViewBounds.size.height += _padding.top + _padding.bottom;
-    _containerView.frame = contentViewBounds;
+    CGSize intrinsicSize = [contentView intrinsicContentSize];
+    CGRect intrinsicBounds = CGRectMake(0, 0, intrinsicSize.width, intrinsicSize.height);
+    _contentView.bounds = intrinsicBounds;
+    intrinsicBounds.size.width += _padding.left + _padding.right;
+    intrinsicBounds.size.height += _padding.top + _padding.bottom;
+    _containerView.frame = intrinsicBounds;
     [_containerView addSubview:_contentView];
     
     [self resizeContainerViewToContentSizeWithPadding];
