@@ -120,12 +120,12 @@ CGRectFromEdgeInsets(CGRect rect, UIEdgeInsets edgeInsets) {
         [self addSubview:_containerView];
         
         // Defaults
-        _arrowHeight = 5;
+        _arrowHeight = 8;
         _attachedToView = YES;
         _padding = defaultPadding;
         _color = [UIColor whiteColor];
         _borderColor = [UIColor clearColor];
-        _cornerRadius = 2;
+        _cornerRadius = 4;
         _arrowMargin = 5;
         _dismissesOnTap = YES;
         _margin = defaultMargin;
@@ -704,7 +704,7 @@ CGRectFromEdgeInsets(CGRect rect, UIEdgeInsets edgeInsets) {
     self.layer.masksToBounds = NO;
     self.layer.shadowOffset = hasShadow ? CGSizeMake(0, 2) : CGSizeZero;
     self.layer.shadowRadius = hasShadow ? 3 : 0;
-    self.layer.shadowOpacity = hasShadow ? 0.15 : 0;
+    self.layer.shadowOpacity = hasShadow ? 0.5 : 0;
     self.layer.shadowColor = hasShadow ? [UIColor blackColor].CGColor : [UIColor clearColor].CGColor;
 }
 
